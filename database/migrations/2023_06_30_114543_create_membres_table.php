@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('Pseudo');
             $table->string('Grade');
-            $table->datetimes('EntryDate');
+            $table->datetime('EntryDate');
             $table->string('Picture');
             $table->boolean('isActif');
             $table->timestamps();
