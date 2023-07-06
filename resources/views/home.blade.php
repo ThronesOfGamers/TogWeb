@@ -21,7 +21,11 @@
 
 <body class="antialiased">
 
+@include('Component.members')
+
+
 @yield('content')
+
 
 </body>
 </html>

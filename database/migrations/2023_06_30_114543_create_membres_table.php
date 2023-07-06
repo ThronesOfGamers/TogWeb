@@ -13,10 +13,11 @@ return new class extends Migration
     {
         Schema::create('membres', function (Blueprint $table) {
             $table->id();
-            $table->string('Pseudo');
-            $table->string('Grade');
-            $table->datetime('EntryDate');
-            $table->string('Picture');
+            $table->string('pseudo');
+            $table->string('grade');
+            $table->string('description');
+            $table->datetime('entryDate');
+            $table->string('picture');
             $table->boolean('isActif');
             $table->timestamps();
         });

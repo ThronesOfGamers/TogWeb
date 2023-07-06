@@ -1,23 +1,39 @@
-<div class="max-w-2xl mx-4 sm:max-w-sm md:max-w-sm lg:max-w-sm xl:max-w-sm sm:mx-auto md:mx-auto lg:mx-auto xl:mx-auto mt-16 bg-white shadow-xl rounded-lg text-gray-900">
-    <div class="rounded-t-lg h-32 overflow-hidden">
-        <img class="object-cover object-top w-full" src='https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ' alt='Mountain'>
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12">
+    <div class="text-center pb-12">
+        <h2 class="text-base font-bold text-indigo-600">
+            We have the best equipment
+        </h2>
+        <h1 class="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900">
+            Nos membres
+        </h1>
     </div>
-    <div class="mx-auto w-32 h-32 relative -mt-16 border-4 border-white rounded-full overflow-hidden">
-        <img class="object-cover object-center h-32" src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=400&fit=max&ixid=eyJhcHBfaWQiOjE0NTg5fQ' alt='Woman looking front'>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6">
+        <div class="w-full bg-gray-100 rounded-lg p-12 flex flex-col justify-center items-center">
+            <div class="mb-8 -mt-20">
+                <img class="object-center object-cover rounded-full h-36 w-36" src="https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1170&q=80" alt="photo">
+            </div>
+            <div class="text-center">
+                <p class="text-xl text-gray-700 font-bold mb-2">Dany Bailey</p>
+                <p class="text-base text-gray-400 font-normal">Software Engineer</p>
+            </div>
+            <div class="mt-auto flex justify-between items-center w-full mt-5">
+                <div>
+                    <span class="bg-blue-500 text-white rounded-full px-2 py-1 text-sm font-semibold">12/09/2012</span>
+                </div>
+                <div>
+                    <span class="bg-red-500 text-white rounded-full px-2 py-1 text-sm font-semibold">12/08/2020</span>
+                </div>
+            </div>
+            <p class="mt-6 text-gray-600">Description du membre Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis mattis enim ac diam ullamcorper, sit amet finibus mi aliquet.</p>
+            <div class="mt-6 flex space-x-4">
+                <a href="#" class="text-gray-600 hover:text-blue-600">a<i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-600 hover:text-blue-600">b<i class="fab fa-linkedin"></i></a>
+                <a href="#" class="text-gray-600 hover:text-blue-600">c<i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <!-- Ajoutez ici les deux autres cartes de membres -->
+
+
     </div>
-    <div class="text-center mt-2">
-        <h2 class="font-semibold">Sarah Smith</h2>
-        <p class="text-gray-500">Freelance Web Designer</p>
-    </div>
-    <ul class="py-4 mt-2 text-gray-700 flex items-center justify-around">
-        <li class="flex flex-col items-center justify-around">
-            <svg class="w-4 fill-current text-blue-900" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
-            </svg>
-            <div>2k</div>
-        </li>
-    </ul>
-    <div class="p-4 border-t mx-8 mt-2">
-        <button class="w-1/2 block mx-auto rounded-full bg-gray-900 hover:shadow-lg font-semibold text-white px-6 py-2">Follow</button>
-    </div>
-</div>
+</section>
