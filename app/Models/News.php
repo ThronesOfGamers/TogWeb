@@ -5,20 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\User;
 
 class News extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'Title',
-        'Content',
-        'Picture',
-        'Author',
-        'Date',
+        'title',
+        'content',
+        'picture',
+        'author',
+        'date_publish',
+        'is_published',
     ];
-    public function sections(): BelongsTo
+    public function author(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'User_id');
+        return $this->belongsTo(User::class, 'user_id', 'id');
     }
 }
