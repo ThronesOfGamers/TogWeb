@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('Title');
             $table->string('Content');
             $table->string('Picture');
-            $table->foreignId('member_id')->constrained('membres');
+            $table->foreignId('users_id')->constrained('users');
             $table->datetime('Date_publish');
             $table->timestamps();
         });

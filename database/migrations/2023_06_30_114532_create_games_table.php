@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->string('picture');
-            $table->boolean('isActif'):
+            $table->boolean('isActif');
             $table->timestamps();
         });
     }
