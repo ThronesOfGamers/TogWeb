@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
+            $table->text('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
             $table->string('content');
             $table->string('picture')->nullable();
             $table->foreignId('author')->constrained('users');

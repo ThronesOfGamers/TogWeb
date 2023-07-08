@@ -52,11 +52,12 @@ class NewsResource extends Resource
                         TextInput::make('slug')
                             ->required()
                             ->maxLength(2048),
+                        Forms\Components\TextInput::make('meta_title')
+                            ->maxLength(255),
+                        Forms\Components\Textarea::make('meta_description')
+                            ->maxLength(255),
                     ]),
-//                Forms\Components\TextInput::make('meta_title')
-//                    ->maxLength(255),
-//                Forms\Components\Textarea::make('meta_description')
-//                    ->maxLength(255),
+
                 RichEditor::make('content')
                     ->required(),
             ])->columnSpan(8),
