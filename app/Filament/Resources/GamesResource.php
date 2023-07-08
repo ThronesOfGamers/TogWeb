@@ -17,7 +17,7 @@ class GamesResource extends Resource
 {
     protected static ?string $model = Games::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-play';
 
     public static function form(Form $form): Form
     {
@@ -43,14 +43,14 @@ class GamesResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -58,5 +58,5 @@ class GamesResource extends Resource
             'create' => Pages\CreateGames::route('/create'),
             'edit' => Pages\EditGames::route('/{record}/edit'),
         ];
-    }    
+    }
 }

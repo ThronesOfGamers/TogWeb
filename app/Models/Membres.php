@@ -13,7 +13,9 @@ class Membres extends Model
     protected $fillable = [
         'pseudo',
         'grade',
+        'description',
         'entryDate',
+        'endDate',
         'picture',
         'isActif',
     ];

@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('pseudo');
             $table->string('grade');
-            $table->string('description');
+            $table->longText('description')->nullable();
             $table->datetime('entryDate');
-            $table->string('picture');
-            $table->boolean('isActif');
+            $table->datetime('endDate')->nullable();
+            $table->string('picture')->nullable();
             $table->timestamps();
         });
     }

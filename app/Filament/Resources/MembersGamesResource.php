@@ -4,6 +4,7 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\MembersGamesResource\Pages;
 use App\Filament\Resources\MembersGamesResource\RelationManagers;
+use App\Models\GamesMembers;
 use App\Models\MembersGames;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -15,7 +16,7 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class MembersGamesResource extends Resource
 {
-    protected static ?string $model = MembersGames::class;
+    protected static ?string $model = GamesMembers::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
@@ -43,14 +44,14 @@ class MembersGamesResource extends Resource
                 Tables\Actions\DeleteBulkAction::make(),
             ]);
     }
-    
+
     public static function getRelations(): array
     {
         return [
             //
         ];
     }
-    
+
     public static function getPages(): array
     {
         return [
@@ -58,5 +59,5 @@ class MembersGamesResource extends Resource
             'create' => Pages\CreateMembersGames::route('/create'),
             'edit' => Pages\EditMembersGames::route('/{record}/edit'),
         ];
-    }    
+    }
 }
