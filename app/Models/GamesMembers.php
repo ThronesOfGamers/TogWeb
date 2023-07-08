@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Membres;
+use App\Models\Games;
 
 class GamesMembers extends Model
 {
@@ -14,12 +16,12 @@ class GamesMembers extends Model
         'game_id',
         'member_id',
     ];
-    public function members(): HasMany
+    public function membres(): BelongsTo
     {
-        return $this->hasMany(Membres::class, 'members_id');
+        return $this->belongsTo(Membres::class, 'member_id', 'pseudo');
     }
-    public function games(): HasMany
+    public function games(): BelongsTo
     {
-        return $this->hasMany(Games::class, 'games_id');
+        return $this->belongsTo(Games::class, 'game_id', 'id');
     }
 }

@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('description');
-            $table->string('picture');
-            $table->boolean('isActif');
+            $table->longText('description')->nullable();
+            $table->string('picture')->nullable();
+            $table->boolean('isActif')->default(true);
             $table->timestamps();
         });
     }

@@ -20,6 +20,8 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\ImageColumn;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use mysql_xdevapi\Schema;
@@ -41,7 +43,8 @@ class MembersResource extends Resource
                                 TextInput::make('pseudo')
                                     ->autofocus()
                                     ->required()
-                                    ->unique(),
+                                    ->maxLength(50)
+                                    ->unique(ignoreRecord: true),
                                 TextInput::make('grade')
                                     ->required(),
                                 ]),
@@ -52,6 +55,7 @@ class MembersResource extends Resource
                         FileUpload::make('picture')
                             ->image()
                             ->avatar()
+                            ->directory('members')
                             ->rules(['nullable', 'mimes:jpg,jpeg,png', 'max:2048']),
                         Grid::make()
                             ->schema([
@@ -71,12 +75,30 @@ class MembersResource extends Resource
         return $table
             ->columns([
                 //
+               ImageColumn::make('picture'),
+                TextColumn::make('pseudo')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('grade')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('entryDate')
+                    ->searchable()
+                    ->sortable()
+                    ->date(),
+                TextColumn::make('endDate')
+                    ->searchable()
+                    ->sortable()
+                    ->date(),
+
             ])
             ->filters([
                 //
             ])
             ->actions([
+                Tables\Actions\ViewAction::make(),
                 Tables\Actions\EditAction::make(),
+                Tables\Actions\DeleteAction::make(),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),

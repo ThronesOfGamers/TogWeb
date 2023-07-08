@@ -4,13 +4,17 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\MembersGamesResource\Pages;
 use App\Filament\Resources\MembersGamesResource\RelationManagers;
+use App\Models\Games;
 use App\Models\GamesMembers;
-use App\Models\MembersGames;
+use App\Models\Membres;
+use Exception;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -25,14 +29,31 @@ class MembersGamesResource extends Resource
         return $form
             ->schema([
                 //
+                Select::make('member_id')
+                    ->relationship('membres', 'pseudo')
+                    ->required(),
+                Select::make('game_id')
+                    ->relationship('games', 'name')
+                    ->required(),
+
+
             ]);
     }
 
+    /**
+     * @throws Exception
+     */
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 //
+                TextColumn::make('membres.pseudo')
+                    ->searchable()
+                    ->sortable(),
+                TextColumn::make('games.name')
+                    ->searchable()
+                    ->sortable(),
             ])
             ->filters([
                 //
@@ -49,6 +70,7 @@ class MembersGamesResource extends Resource
     {
         return [
             //
+
         ];
     }
 

@@ -9,4 +9,8 @@ use Filament\Resources\Pages\CreateRecord;
 class CreateGames extends CreateRecord
 {
     protected static string $resource = GamesResource::class;
+    protected function getRedirectUrl(): string
+    {
+        return $this->getResource()::getUrl('index');
+    }
 }
