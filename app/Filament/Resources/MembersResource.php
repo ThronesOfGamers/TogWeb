@@ -75,7 +75,8 @@ class MembersResource extends Resource
         return $table
             ->columns([
                 //
-               ImageColumn::make('picture'),
+               ImageColumn::make('picture')
+                   ->circular(),
                 TextColumn::make('pseudo')
                     ->searchable()
                     ->sortable(),

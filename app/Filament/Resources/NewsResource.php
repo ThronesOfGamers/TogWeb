@@ -14,6 +14,7 @@ use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
 use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
 use Filament\Resources\Form;
@@ -25,6 +26,7 @@ use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use Illuminate\Support\Str;
 
 class NewsResource extends Resource
 {
@@ -52,12 +54,11 @@ class NewsResource extends Resource
                         TextInput::make('slug')
                             ->required()
                             ->maxLength(2048),
-                        Forms\Components\TextInput::make('meta_title')
+                        TextInput::make('meta_title')
                             ->maxLength(255),
-                        Forms\Components\Textarea::make('meta_description')
+                        Textarea::make('meta_description')
                             ->maxLength(255),
                     ]),
-
                 RichEditor::make('content')
                     ->required(),
             ])->columnSpan(8),
