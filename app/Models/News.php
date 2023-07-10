@@ -13,14 +13,17 @@ class News extends Model
 
     protected $fillable = [
         'title',
+        'slug',
+        'meta_title',
+        'meta_description',
         'content',
         'picture',
         'author',
         'date_publish',
         'is_published',
     ];
-    public function author(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(User::class, 'author', 'id');
     }
 }

@@ -60,6 +60,7 @@ class MembersGamesResource extends Resource
             ])
             ->filters([
 
+
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

@@ -27,6 +27,7 @@ use Filament\Tables\Columns\TextColumn;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
+use App\Models\User;
 
 class NewsResource extends Resource
 {
@@ -47,6 +48,7 @@ class NewsResource extends Resource
                             ->autofocus()
                             ->required()
                             ->maxLength(2048)
+                            ->unique()
                             ->reactive()
                             ->afterStateUpdated(function (Closure $set, $state) {
                                 $set('slug', Str::slug($state));
@@ -67,10 +69,8 @@ class NewsResource extends Resource
                 Grid::make()
                     ->schema([
                         Select::make('author')
-                            ->default(function () {
-                                return auth()->user()->id;
-                            })
-                            ->relationship('author', 'name')
+                            ->placeholder('Select an author')
+                            ->relationship('user', 'name')
                             ->required(),
                         DatePicker::make('date_publish')
                             ->default(now()),
@@ -100,7 +100,7 @@ class NewsResource extends Resource
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
-                TextColumn::make('author.name', 'author')
+                TextColumn::make('user.name')
                     ->searchable()
                     ->sortable(),
                 IconColumn::make('is_published')
