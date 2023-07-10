@@ -22,6 +22,8 @@ use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use mysql_xdevapi\Schema;
@@ -95,6 +97,26 @@ class MembersResource extends Resource
             ])
             ->filters([
                 //
+               SelectFilter::make('pseudo')
+                    ->options(
+                        Membres::query()
+                            ->pluck('pseudo', 'pseudo')
+                            ->all()
+                    )
+                    ->multiple(),
+                SelectFilter::make('grade')
+                    ->options(
+                        Membres::query()
+                            ->pluck('grade', 'grade')
+                            ->all()
+                    )
+                    ->multiple(),
+
+
+
+
+
+
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
