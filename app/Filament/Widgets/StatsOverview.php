@@ -2,6 +2,7 @@
 
 namespace App\Filament\Widgets;
 
+use App\Models\Category;
 use App\Models\Games;
 use App\Models\Membres;
 use App\Models\News;
@@ -21,6 +22,8 @@ class StatsOverview extends BaseWidget
             Card::make('Games Actif',$countGame),
             Card::make('Games total', Games::count()),
             Card::make('News', News::count()),
+            Card::make('Category', Category::count()),
+
         ];
     }
 }

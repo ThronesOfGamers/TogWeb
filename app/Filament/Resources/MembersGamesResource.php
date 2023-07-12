@@ -59,11 +59,11 @@ class MembersGamesResource extends Resource
                     ->sortable(),
             ])
             ->filters([
-                SelectFilter::make('member_id')
+                SelectFilter::make('member')
                     ->placeholder('Select a Member')
                     ->relationship('membres', 'pseudo')
                     ->multiple(),
-                SelectFilter::make('game_id')
+                SelectFilter::make('game')
                     ->placeholder('Select a Game')
                     ->relationship('games', 'name')
                     ->multiple(),

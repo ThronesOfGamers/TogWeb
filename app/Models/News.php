@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 
 class News extends Model
 {
@@ -32,4 +33,15 @@ class News extends Model
     {
         return $this->belongsTo(Category::class , 'category_id', 'id');
     }
+
+    public static function getNewsByCategoryCount()
+    {
+        return static::query()
+            ->select('category_id', DB::raw('count(*) as news_count'))
+            ->groupBy('category_id')
+            ->with('category')
+            ->get();
+    }
+
+
 }

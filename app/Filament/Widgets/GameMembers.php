@@ -9,6 +9,7 @@ use Exception;
 use Filament\Forms\Components\Select;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Widgets\TableWidget as BaseWidget;
 use Illuminate\Console\View\Components\Task;
 use Illuminate\Database\Eloquent\Builder;
@@ -44,18 +45,15 @@ class GameMembers extends BaseWidget
     {
         return [
             // ...
-            Filter::make('Games')
-                ->form([
-                    Select::make('games.name')
-                    ->label('Game')
-                    ->placeholder('Select a game')
-                    ->options(
-                        Games::all()->pluck('name', 'id')
-                    )
-                    ->afterStateUpdated(
-                        fn (callable $set, $state) => $set('game_id', null)
-                    )
-                ])
+            SelectFilter::make('members')
+                ->placeholder('Select a Member')
+                ->relationship('membres', 'pseudo')
+                ->multiple(),
+            SelectFilter::make('games')
+                ->placeholder('Select a Game')
+                ->relationship('games', 'name')
+                ->multiple(),
+
         ];
     }
 

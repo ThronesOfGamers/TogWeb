@@ -3,12 +3,13 @@
 namespace App\Filament\Widgets;
 
 use App\Models\GamesMembers;
+use Filament\Tables\Filters\SelectFilter;
 use Filament\Widgets\PieChartWidget;
 
 
 class GameMembersChart extends PieChartWidget
 {
-    protected static ?string $heading = 'Members by game';
+    protected static ?string $heading = "Member's by game";
 
     protected function getData(): array
     {
@@ -25,4 +26,5 @@ class GameMembersChart extends PieChartWidget
             'labels' => $data->pluck('games.name'),
         ];
     }
+
 }

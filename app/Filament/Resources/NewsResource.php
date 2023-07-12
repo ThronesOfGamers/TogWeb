@@ -135,7 +135,7 @@ class NewsResource extends Resource
                 SelectFilter::make('author')
                     ->relationship('user', 'name')
                     ->multiple(),
-                SelectFilter::make('category_id')
+                SelectFilter::make('category')
                     ->placeholder('Select a category')
                     ->relationship('category', 'name')
                     ->multiple(),
