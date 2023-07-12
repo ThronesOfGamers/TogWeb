@@ -132,14 +132,14 @@ class NewsResource extends Resource
                             ->all()
                     )
                     ->multiple(),
-                SelectFilter::make('category_id')
-                    ->options(
-                        News::query()
-                            ->pluck('category_id', 'category_id')
-                            ->all()
-                    )
+                SelectFilter::make('author')
+                    ->relationship('user', 'name')
                     ->multiple(),
-                  SelectFilter::make('is_published')
+                SelectFilter::make('category_id')
+                    ->placeholder('Select a category')
+                    ->relationship('category', 'name')
+                    ->multiple(),
+                SelectFilter::make('is_published')
                       ->options([
                           '1' => 'Yes',
                           '0' => 'No',

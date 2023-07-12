@@ -111,12 +111,6 @@ class MembersResource extends Resource
                             ->all()
                     )
                     ->multiple(),
-
-
-
-
-
-
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
