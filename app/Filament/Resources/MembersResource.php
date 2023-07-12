@@ -31,7 +31,7 @@ use mysql_xdevapi\Schema;
 class MembersResource extends Resource
 {
     protected static ?string $model = Membres::class;
-
+    protected static ?string $navigationGroup = 'Teams';
     protected static ?string $navigationIcon = 'heroicon-o-user';
 
     public static function form(Form $form): Form

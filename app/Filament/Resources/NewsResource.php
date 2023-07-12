@@ -24,6 +24,7 @@ use Filament\Tables;
 use Filament\Tables\Columns\IconColumn;
 use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Str;
@@ -32,7 +33,7 @@ use App\Models\User;
 class NewsResource extends Resource
 {
     protected static ?string $model = News::class;
-
+    protected static ?string $navigationGroup = 'News';
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
 
     public static function form(Form $form): Form
@@ -79,6 +80,9 @@ class NewsResource extends Resource
                     ->image()
                     ->directory('news')
                     ->rules(['nullable', 'mimes:jpg,jpeg,png', 'max:2048']),
+                Select::make('category_id')
+                    ->placeholder('Select a category')
+                    ->relationship('category', 'name'),
                 Toggle::make('is_published')
                     ->default(false)
                     ->offColor('error')
@@ -100,6 +104,9 @@ class NewsResource extends Resource
                 TextColumn::make('title')
                     ->searchable()
                     ->sortable(),
+                TextColumn::make('category.name')
+                    ->searchable()
+                    ->sortable(),
                 TextColumn::make('user.name')
                     ->searchable()
                     ->sortable(),
@@ -118,6 +125,26 @@ class NewsResource extends Resource
             ])
             ->filters([
                 //
+                SelectFilter::make('title')
+                    ->options(
+                        News::query()
+                            ->pluck('title', 'title')
+                            ->all()
+                    )
+                    ->multiple(),
+                SelectFilter::make('category_id')
+                    ->options(
+                        News::query()
+                            ->pluck('category_id', 'category_id')
+                            ->all()
+                    )
+                    ->multiple(),
+                  SelectFilter::make('is_published')
+                      ->options([
+                          '1' => 'Yes',
+                          '0' => 'No',
+                      ]),
+
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),

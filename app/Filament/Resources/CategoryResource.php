@@ -2,29 +2,26 @@
 
 namespace App\Filament\Resources;
 
-use App\Filament\Resources\MembersGamesResource\Pages;
-use App\Filament\Resources\MembersGamesResource\RelationManagers;
-use App\Models\Games;
-use App\Models\GamesMembers;
-use App\Models\Membres;
+use App\Filament\Resources\CategoryResource\Pages;
+use App\Filament\Resources\CategoryResource\RelationManagers;
+use App\Models\Category;
 use Exception;
 use Filament\Forms;
-use Filament\Forms\Components\Select;
+use Filament\Forms\Components\Textarea;
+use Filament\Forms\Components\TextInput;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Columns\TextColumn;
-use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
-
-class MembersGamesResource extends Resource
+class CategoryResource extends Resource
 {
-    protected static ?string $model = GamesMembers::class;
-    protected static ?string $navigationGroup = 'Teams';
+    protected static ?string $model = Category::class;
+    protected static ?string $navigationGroup = 'News';
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
@@ -32,14 +29,14 @@ class MembersGamesResource extends Resource
         return $form
             ->schema([
                 //
-                Select::make('member_id')
-                    ->relationship('membres', 'pseudo')
-                    ->required(),
-                Select::make('game_id')
-                    ->relationship('games', 'name')
-                    ->required(),
-
-
+                TextInput::make('name')
+                    ->autofocus()
+                    ->required()
+                    ->maxLength(50)
+                    ->unique()
+                    ->reactive(),
+                Textarea::make('description')
+                    ->maxLength(2048),
             ]);
     }
 
@@ -51,16 +48,20 @@ class MembersGamesResource extends Resource
         return $table
             ->columns([
                 //
-                TextColumn::make('membres.pseudo')
-                    ->searchable()
-                    ->sortable(),
-                TextColumn::make('games.name')
-                    ->searchable()
-                    ->sortable(),
+                TextColumn::make('name')
+                    ->sortable()
+                    ->searchable(),
+                TextColumn::make('description'),
             ])
             ->filters([
-
-
+                //
+                SelectFilter::make('name')
+                    ->options(
+                        Category::query()
+                            ->pluck('name', 'name')
+                            ->all()
+                    )
+                    ->multiple(),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
@@ -76,16 +77,15 @@ class MembersGamesResource extends Resource
     {
         return [
             //
-
         ];
     }
 
     public static function getPages(): array
     {
         return [
-            'index' => Pages\ListMembersGames::route('/'),
-            'create' => Pages\CreateMembersGames::route('/create'),
-            'edit' => Pages\EditMembersGames::route('/{record}/edit'),
+            'index' => Pages\ListCategories::route('/'),
+            'create' => Pages\CreateCategory::route('/create'),
+            'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
     }
 }

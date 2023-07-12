@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('author')->constrained('users');
             $table->datetime('date_publish')->default(now());
             $table->boolean('is_published')->default(false);
+            $table->foreignId('category_id')->nullable()->constrained('categories');
             $table->timestamps();
         });
     }

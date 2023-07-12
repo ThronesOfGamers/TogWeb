@@ -21,9 +21,15 @@ class News extends Model
         'author',
         'date_publish',
         'is_published',
+        'category_id',
     ];
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class, 'author', 'id');
+    }
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class , 'category_id', 'id');
     }
 }

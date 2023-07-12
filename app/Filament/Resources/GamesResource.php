@@ -28,6 +28,7 @@ class GamesResource extends Resource
 {
     protected static ?string $model = Games::class;
 
+    protected static ?string $navigationGroup = 'Teams';
     protected static ?string $navigationIcon = 'heroicon-o-play';
 
     public static function form(Form $form): Form
