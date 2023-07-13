@@ -15,16 +15,16 @@ class GameMembersChart extends PieChartWidget
     {
         $data = GamesMembers::getMembersByGameCount();
 
+
         return [
             'datasets' => [
                 [
                     'label' => 'Members',
-
                     'data' => $data->pluck('member_count'),
+
                 ],
             ],
             'labels' => $data->pluck('games.name'),
         ];
     }
-
 }

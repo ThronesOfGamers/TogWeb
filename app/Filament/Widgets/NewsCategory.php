@@ -16,10 +16,17 @@ class NewsCategory extends PieChartWidget
                 'datasets' => [
                     [
                         'label' => 'Category',
-
                         'data' => $data->pluck('news_count'),
+                        'backgroundColor' => [
+                            '#FF6384', // Couleur pour le premier élément
+                            '#36A2EB', // Couleur pour le deuxième élément
+                            '#FFCE56', // Couleur pour le troisième élément
+                            // Ajoutez plus de couleurs selon vos besoins
+                        ],
                     ],
+
                 ],
+
                 'labels' => $data->pluck('category.name'),
             ];
     }
