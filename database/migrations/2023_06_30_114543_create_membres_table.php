@@ -19,6 +19,10 @@ return new class extends Migration
             $table->datetime('entryDate');
             $table->datetime('endDate')->nullable();
             $table->string('picture')->nullable();
+            $table->string('youtube')->nullable();
+            $table->string('twitch')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('instagram')->nullable();
             $table->timestamps();
         });
     }

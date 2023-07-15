@@ -21,8 +21,7 @@
 
 <body class="antialiased">
 
-@include('Component.members')
-
+@livewire('members-component')
 
 @yield('content')
 
