@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\MembersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route vers la page d'accueil (Home)
+Route::get('/', [HomeController::class, 'index'])->name('home');

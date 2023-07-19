@@ -1,3 +1,4 @@
+
 <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
     <img
         alt="Office"
