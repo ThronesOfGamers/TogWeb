@@ -168,7 +168,7 @@ return [
 
         /*
         |----------------------------------------------------------------------
-        | Default Icon Component Name
+        | Default Icon components Name
         |----------------------------------------------------------------------
         |
         | This config option allows you to define the name

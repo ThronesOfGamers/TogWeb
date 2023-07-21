@@ -52,6 +52,7 @@ class GamesResource extends Resource
                 Card::make()
                  ->schema([
                      FileUpload::make('picture')
+                         ->required()
                          ->image()
                          ->directory('games')
                          ->rules(['nullable', 'mimes:jpg,jpeg,png', 'max:2048']),
