@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Membres;
 use Illuminate\Http\Request;
 
 class MembersController extends Controller
@@ -9,6 +10,10 @@ class MembersController extends Controller
     //
     public function index()
     {
-        return view('members');
+
+
+
+
+        return view('members', );
     }
 }

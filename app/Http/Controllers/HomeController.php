@@ -16,29 +16,14 @@ class HomeController extends Controller
     {
 
 
-        $games = Games::all()->where('isActif', true);
-        $news = News::Orderby('date_publish', 'desc')->where('is_published', 1)->take(5)->get();
 
 
 
 
 
 
-        return view('home', compact( 'games', 'news')) ;
+        return view('home');
     }
 
-
-    public static function authorName($authorid){
-
-        $author = User::find($authorid);
-        return $author->name;
-
-    }
-    public static function categoryName($categoryid){
-
-        $category = Category::find($categoryid);
-        return $category->name;
-
-    }
 
 }

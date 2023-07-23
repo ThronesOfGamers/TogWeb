@@ -16,7 +16,7 @@ class AboutComponent extends Component
     public function render()
     {
         $games = Games::count();
-        $members = Membres::where('endDate', '!=', null)->count();
+        $members = Membres::whereNull('endDate')->count();
         $yearsCreate = Membres::min('entryDate');
         $yearsCreateObj = new DateTime($yearsCreate);
 
