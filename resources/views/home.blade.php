@@ -54,10 +54,7 @@
 
     <div class="grid grid-cols-2 gap-4">
         @foreach( $news as $new)
-
-
-
-
+<a href="">
             <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
                 <img src="{{ asset('storage/' .  $new->picture)  }}" alt="{{$new->title}} New's cover" title="{{$new->title}} New's cover" class="h-56 w-full object-cover"/>
 
@@ -86,7 +83,7 @@
 
                 </div>
             </article>
-
+</a>
 
         @endforeach
     </div>
