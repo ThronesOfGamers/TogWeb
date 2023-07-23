@@ -14,6 +14,7 @@ class Games extends Model
         'name',
         'description',
         'picture',
+        'isActif',
     ];
     public function gamesmembers(): HasMany
     {

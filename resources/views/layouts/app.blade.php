@@ -790,7 +790,7 @@
 
 
 
-@include('components.contact')
+
 @include('components.footer')
 @livewireScripts
 </body>
