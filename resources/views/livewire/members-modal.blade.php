@@ -1,4 +1,4 @@
-@if($isOpen)
+
 <!-- Modal Tailwind -->
 <div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
     <!--
@@ -11,6 +11,7 @@
         From: "opacity-100"
         To: "opacity-0"
     -->
+
     <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
 
     <div class="fixed inset-0 z-10 overflow-y-auto">
@@ -36,7 +37,7 @@
                         <div class="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
                             <h3 class="text-base font-semibold leading-6 text-gray-900" id="modal-title">Deactivate account</h3>
                             <div class="mt-2">
-                                <p class="text-sm text-gray-500">Are you sure you want to deactivate your account? All of your data will be permanently removed. This action cannot be undone.</p>
+
                             </div>
                         </div>
                     </div>

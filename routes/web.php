@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\homeController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MembersController;
 use Illuminate\Support\Facades\Route;
 

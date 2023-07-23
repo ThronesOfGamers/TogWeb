@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('slug');
-            $table->text('meta_title')->nullable();
-            $table->text('meta_description')->nullable();
+            $table->text('meta_title');
+            $table->text('meta_description');
             $table->string('content');
-            $table->string('picture')->nullable();
+            $table->string('picture');
             $table->foreignId('author')->constrained('users');
             $table->datetime('date_publish')->default(now());
             $table->boolean('is_published')->default(false);

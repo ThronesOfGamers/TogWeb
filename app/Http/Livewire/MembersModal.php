@@ -12,11 +12,10 @@ class MembersModal extends Component
 
     protected $listeners = ['openModal'];
 
-    public function openModal(): void
+    public function openModal($memberId): void
     {
         $this->isOpen = true;
-
-
+        $this->memberData = Membres::find($memberId);
     }
 
     public function closeModal(): void
