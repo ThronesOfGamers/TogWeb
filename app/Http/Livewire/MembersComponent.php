@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class MembersComponent extends Component
 {
-
     public function render()
     {
         $members = Membres::all();

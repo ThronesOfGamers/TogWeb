@@ -16,10 +16,9 @@
             <div class="mt-8 sm:mt-12">
                 <dl class="grid grid-cols-1 gap-4 sm:grid-cols-4">
                     <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
-                        <dt class="order-last text-lg font-medium text-gray-500">
+                        <dt class="order-last text-lg font-medium text-gray-500" >
                             Membres
                         </dt>
-
                         <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">
                             {{ $members}}
                         </dd>
@@ -38,17 +37,19 @@
                             Heures de jeu
                         </dt>
 
-                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">25 863</dd>
+                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl" >
+                            25863
+                        </dd>
                     </div>
 
                     <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
                         <dt class="order-last text-lg font-medium text-gray-500">
                             Années d'existence
                         </dt>
-
                         <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl"> {{ $years }}</dd>
                     </div>
                 </dl>
             </div>
         </div>
     </section>
+

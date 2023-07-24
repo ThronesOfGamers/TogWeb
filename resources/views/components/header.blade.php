@@ -15,7 +15,7 @@
                     <ul class="flex items-center gap-6 text-sm">
 
                         <li>
-                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#about">
+                            <a class="text-gray-500 transition hover:text-gray-500/75" href="#/about">
                                 A propos
                             </a>
                         </li>
