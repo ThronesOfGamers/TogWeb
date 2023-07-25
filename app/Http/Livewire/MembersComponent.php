@@ -7,6 +7,10 @@ use Livewire\Component;
 
 class MembersComponent extends Component
 {
+    public function openModal(): void
+    {
+        $this->dispatchBrowserEvent('open-modal');
+    }
     public function render()
     {
         $members = Membres::all();

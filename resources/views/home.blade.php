@@ -52,6 +52,7 @@
 
 
 <livewire:members-component />
+<livewire:members-modal/>
 
 @include('Components.contact')
 
