@@ -22,6 +22,7 @@
                  x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                  class="inline-block w-full max-w-xl p-8 my-20 overflow-hidden text-left transition-all transform bg-white rounded-lg shadow-xl 2xl:max-w-2xl"
             >
+
                 <div class="max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8 lg:py-16">
                     <div
                         class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16"
@@ -30,9 +31,9 @@
                             class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right"
                         >
 
-                            <img class="object-center object-cover rounded-full h-36 w-36 mb-8 -mt-20 mx-auto" src=""  alt="photo">
+                            <img class="object-center object-cover rounded-full h-36 w-36 mb-8 -mt-20 mx-auto" src=" " alt="photo">
 
-                            <h2 class="text-3xl font-bold sm:text-4xl">Find your career path</h2>
+                            <h2 class="text-3xl font-bold sm:text-4xl"> pseudo </h2>
 
                             <p class="mt-4 text-gray-600">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero
@@ -75,7 +76,6 @@
                             </a>
 
                         </div>
-
                     </div>
                 </div>
             </div>

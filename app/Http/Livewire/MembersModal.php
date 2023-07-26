@@ -8,10 +8,11 @@ use App\Models\Membres;
 class MembersModal extends Component
 {
     protected $listeners = ['openModal', 'closeModal'];
-    public $memberId;
-    public $member;
-    public function openModal(): void
+
+    public $selectedMember;
+    public function openModal(Membres $member): void
     {
+        $this->selectedMember = $member;
         $this->dispatchBrowserEvent('open-modal');
     }
 
@@ -21,7 +22,7 @@ class MembersModal extends Component
     }
     public function render()
     {
-        return view('livewire.members-modal');
+        return view('livewire.members-modal',['member' => $this->selectedMember]);
     }
 
 }

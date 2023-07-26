@@ -14,7 +14,7 @@
         @foreach ($members as $member)
             <div class="w-full rounded-lg p-12 flex flex-col justify-center items-center">
 
-                <img class="object-center object-cover rounded-full h-36 w-36 cursor-pointer" src="{{ asset('storage/' . $member->picture) }}"  wire:click="openModal" alt="photo">
+                <img class="object-center object-cover rounded-full h-36 w-36 cursor-pointer" src="{{ asset('storage/' . $member->picture) }}"  wire:click="openModal({{ $member->id }})" alt="photo">
 
                 <div class="text-center">
                     <p class="text-xl text-gray-700 font-bold mb-2">{{ $member->pseudo }}</p>

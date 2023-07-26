@@ -41,15 +41,8 @@
 
 <livewire:about-component />
 
-
-
-
-
-
 <livewire:news-component />
-
 <livewire:games-component />
-
 
 <livewire:members-component />
 <livewire:members-modal/>
