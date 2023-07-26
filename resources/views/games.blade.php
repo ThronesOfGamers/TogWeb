@@ -14,7 +14,9 @@
                                 Le jeux le plus populaire de la teams : {{ \App\Http\Controllers\GamesController::famousGames($famousGames->game_id)->name }}
                             </p>
                         </div>
-
+                        <div class="prose">
+                            {!! \App\Http\Controllers\GamesController::famousGames($famousGames->game_id)->description !!}
+                        </div>
                     </div>
                 </div>
                 <div class="order-first block w-full mt-12 aspect-square lg:mt-0">
