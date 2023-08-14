@@ -1,5 +1,5 @@
 
-    <section class="bg-white bt-5">
+    <section class="bg-white bt-5" id="about">
         <div class="mx-auto max-w-screen-xl px-4 py-12 sm:px-6 md:py-16 lg:px-8">
             <div class="mx-auto max-w-3xl text-center">
                 <h2 class="text-5xl font-bold text-gray-900 from-red-600 via-pink-600 to-blue-600 bg-gradient-to-r bg-clip-text text-transparent">

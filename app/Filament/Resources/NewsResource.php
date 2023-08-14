@@ -13,6 +13,7 @@ use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\RichEditor;
+use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Textarea;
 use Filament\Forms\Components\TextInput;
@@ -53,41 +54,50 @@ class NewsResource extends Resource
                             ->reactive()
                             ->afterStateUpdated(function (Closure $set, $state) {
                                 $set('slug', Str::slug($state));
+                                $set('meta_title', Str::slug($state));
                             }),
-                        TextInput::make('slug')
-                            ->required()
-                            ->maxLength(2048),
-                        TextInput::make('meta_title')
-                            ->maxLength(255),
-                        Textarea::make('meta_description')
-                            ->maxLength(255),
+                        Select::make('author')
+                            ->placeholder('Select an author')
+                            ->relationship('user', 'name')
+                            ->default(auth()->user()->id)
+                            ->required(),
+                        DatePicker::make('date_publish')
+                            ->default(now()),
+                        Toggle::make('is_published')
+                            ->default(false)
+                            ->offColor('error')
+                            ->onColor('success')
+                            ->onIcon('heroicon-o-check-circle'),
                     ]),
+                FileUpload::make('picture')
+                    ->image()
+                    ->directory('news')
+                    ->rules(['nullable', 'mimes:jpg,jpeg,png', 'max:2048'])
+                    ->required(),
                 RichEditor::make('content')
                     ->required(),
+                Select::make('category_id')
+                    ->placeholder('Select a category')
+                    ->relationship('category', 'name'),
+
             ])->columnSpan(8),
         Card::make()
             ->schema([
                 Grid::make()
                     ->schema([
-                        Select::make('author')
-                            ->placeholder('Select an author')
-                            ->relationship('user', 'name')
+                        TextInput::make('slug')
+                            ->required()
+                            ->maxLength(2048),
+                        TextInput::make('meta_title')
+                            ->maxLength(255)
                             ->required(),
-                        DatePicker::make('date_publish')
-                            ->default(now()),
                     ]),
-                FileUpload::make('picture')
-                    ->image()
-                    ->directory('news')
-                    ->rules(['nullable', 'mimes:jpg,jpeg,png', 'max:2048']),
-                Select::make('category_id')
-                    ->placeholder('Select a category')
-                    ->relationship('category', 'name'),
-                Toggle::make('is_published')
-                    ->default(false)
-                    ->offColor('error')
-                    ->onColor('success')
-                    ->onIcon('heroicon-o-check-circle'),
+                Textarea::make('meta_keywords')
+                    ->maxLength(255)
+                    ->required(),
+                Textarea::make('meta_description')
+                    ->maxLength(255)
+                    ->required(),
             ])->columnSpan(4),
     ])->columns(12);
     }

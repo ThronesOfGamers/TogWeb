@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('meta_title');
             $table->text('meta_description');
+            $table->text('meta_keywords');
             $table->string('content');
             $table->string('picture');
             $table->foreignId('author')->constrained('users');

@@ -17,6 +17,7 @@ class News extends Model
         'slug',
         'meta_title',
         'meta_description',
+        'meta_keywords',
         'content',
         'picture',
         'author',
