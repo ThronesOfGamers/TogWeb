@@ -7,12 +7,11 @@ use Livewire\Component;
 
 class MembersComponent extends Component
 {
-    public $selectedMember;
-    public function openModal(Membres $member): void
+    public function openModal($memberId): void
     {
-        $this->selectedMember = $member;
-        $this->dispatchBrowserEvent('open-modal');
+        $this->emit('openModal', $memberId);
     }
+
     public function render()
     {
         $members = Membres::all();
@@ -20,3 +19,4 @@ class MembersComponent extends Component
     }
 
 }
+

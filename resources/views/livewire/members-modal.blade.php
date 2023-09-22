@@ -1,4 +1,6 @@
-<!-- resources/views/livewire/modal-membres.blade.php -->
+
+
+
 <div x-data="{ modelOpen: false }" x-show="modelOpen" @open-modal.window="modelOpen = true" @close-modal.window="modelOpen = false" wire:ignore>
     <div x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
@@ -34,6 +36,7 @@
                             <img class="object-center object-cover rounded-full h-36 w-36 mb-8 -mt-20 mx-auto" src=" " alt="photo">
 
                             <h2 class="text-3xl font-bold sm:text-4xl"> pseudo </h2>
+{{--                            <h2 class="text-3xl font-bold sm:text-4xl"> {{ $selectedMember->id }} </h2>--}}
 
                             <p class="mt-4 text-gray-600">
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero
@@ -82,3 +85,4 @@
         </div>
     </div>
 </div>
+

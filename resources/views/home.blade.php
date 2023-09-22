@@ -44,8 +44,8 @@
 <livewire:news-component />
 <livewire:games-component />
 
-<livewire:members-component />
-<livewire:members-modal/>
+<livewire:members-component :key="'members-component'" />
+<livewire:members-modal :key="'members-modal'" />
 
 @include('Components.contact')
 
