@@ -16,8 +16,7 @@
             </h1>
 
             <p class="mt-4 sm:text-xl/relaxed">
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nesciunt illo
-                tenetur fuga ducimus numquam ea!
+                Nous sommes les demons qui vont devenir légendes.
             </p>
 
             <div class="mt-8 flex flex-wrap justify-center gap-4">
