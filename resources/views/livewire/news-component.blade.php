@@ -4,43 +4,31 @@
 
     <div class="text-center pb-12">
         <h2 class="text-base font-bold text-indigo-600">
-            Nos dernières actualité
+            Une team actif est toujours mieux qu'une team inactive
         </h2>
-        <h3 class="font-bold text-2xl md:text-3xl lg:text-4xl font-heading text-gray-900 mb-5">
-            Actualité
+        <h3 class="font-bold text-2xl md:text-3xl lg:text-4xl font-heading text-gray-900 ">
+            Nos dernières actualité
         </h3>
 
-    </div>
-
-    <div class="grid grid-cols-2 gap-4">
-        @foreach( $news as $new)
-
-            <article class="overflow-hidden rounded-lg shadow transition hover:shadow-lg">
-                <img src="{{ asset('storage/' .  $new->picture)  }}" alt="{{$new->title}} New's cover" title="{{$new->title}} New's cover" class="h-56 w-full object-cover"/>
-
-                <div class="bg-white p-4 sm:p-6">
-                    <div class="flex justify-between">
-                        <time datetime="2022-10-10" class="block text-xs text-gray-700">
-                            {{ date("dS M Y", strtotime($new->date_publish)) }}
-                        </time>
-                        <p class="text-xs text-gray-700" > By {{  App\Http\Livewire\NewsComponent::authorName($new->author) }}</p>
-                        <span class="whitespace-nowrap rounded-full bg-purple-100 px-2.5 py-0.5 text-xs text-purple-600">
-        {{App\Http\Livewire\NewsComponent::categoryName($new->category_id)}}
-      </span>
+    <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
+        <div class="grid justify-items-stretch md:mb-12 md:grid-cols-3 md:gap-4 lg:mb-16 lg:gap-6">
+            @foreach( $news as $new)
+                <a href="#" class="flex flex-col gap-4 rounded-md px-4 py-8 md:p-0">
+                    <img src="{{ asset('storage/' .  $new->picture)  }}" alt="{{$new->title}} New's cover" title="{{$new->title}} New's cover" class="h-56 w-full object-cover"/>
+                    <div class="flex flex-col items-start py-4">
+                        <div class="mb-4 rounded-md bg-[#f2f2f7] px-2 py-1.5">
+                            <p class="text-sm font-semibold text-[#6574f8]">{{App\Http\Livewire\NewsComponent::categoryName($new->category_id)}}</p>
+                        </div>
+                        <p class="mb-4 text-xl font-bold md:text-2xl">{{$new->title}}</p>
+                        <div class="flex flex-col text-sm text-[#636262] lg:flex-row">
+                            <p>By {{  App\Http\Livewire\NewsComponent::authorName($new->author) }}</p>
+                            <p class="mx-2 hidden lg:block">-</p>
+                            <p> {{ date("dS M Y", strtotime($new->date_publish)) }}</p>
+                        </div>
                     </div>
-                    <h3 class="mt-0.5 text-lg text-gray-900 text-center">
-                        {{$new->title}}
-                    </h3>
-                    <p class="mt-2 line-clamp-3 text-sm/relaxed text-gray-500">
-                        {{$new->meta_description}}
-                    </p>
-                </div>
-            </article>
-
-
-        @endforeach
+                </a>
+            @endforeach
+        </div>
     </div>
-
-
-
+    </div>
 </section>
