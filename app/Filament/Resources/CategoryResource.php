@@ -33,7 +33,7 @@ class CategoryResource extends Resource
                     ->autofocus()
                     ->required()
                     ->maxLength(50)
-                    ->unique()
+                    ->unique(ignoreRecord: true)
                     ->reactive(),
                 Textarea::make('description')
                     ->maxLength(2048),

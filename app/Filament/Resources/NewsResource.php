@@ -50,7 +50,7 @@ class NewsResource extends Resource
                             ->autofocus()
                             ->required()
                             ->maxLength(2048)
-                            ->unique()
+                            ->unique(ignoreRecord: true)
                             ->reactive()
                             ->afterStateUpdated(function (Closure $set, $state) {
                                 $set('slug', Str::slug($state));

@@ -41,6 +41,7 @@
 <livewire:about-component />
 
 <livewire:news-component />
+
 <livewire:games-component />
 
 <livewire:members-component :key="'members-component'" />
