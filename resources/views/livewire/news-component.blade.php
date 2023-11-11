@@ -1,8 +1,8 @@
 <!-- New's section -->
 
-<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-12 bt-5" id="news">
+<section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-4 py-3 bt-5" id="news">
 
-    <div class="text-center pb-12">
+    <div class="text-center pb-6">
         <h2 class="text-base font-bold text-indigo-600">
             Une team actif est toujours mieux qu'une team inactive
         </h2>
@@ -10,11 +10,11 @@
             Nos dernières actualité
         </h3>
 
-    <div class="mx-auto w-full max-w-7xl px-5 py-16 md:px-10 md:py-24 lg:py-32">
-        <div class="grid justify-items-stretch md:mb-12 md:grid-cols-3 md:gap-4 lg:mb-16 lg:gap-6">
+    <div class="mx-auto w-full max-w-7xl px-5 py-6 md:px-10 md:py-6 lg:py-6">
+        <div class="grid justify-items-stretch md:mb-6 md:grid-cols-3 md:gap-4 lg:mb-6 lg:gap-6">
             @foreach( $news as $new)
-                <a href="#" class="flex flex-col gap-4 rounded-md px-4 py-8 md:p-0">
-                    <img src="{{ asset('storage/' .  $new->picture)  }}" alt="{{$new->title}} New's cover" title="{{$new->title}} New's cover" class="h-56 w-full object-cover"/>
+                <a href="#" class="flex flex-col gap-4 rounded-md px-4 py-8 md:p-0 ">
+                    <img src="{{ asset('storage/' .  $new->picture)  }}" alt="{{$new->title}} New's cover" title="{{$new->title}} New's cover" class="h-3/6 w-full object-cover rounded-xl"/>
                     <div class="flex flex-col items-start py-4">
                         <div class="mb-4 rounded-md bg-[#f2f2f7] px-2 py-1.5">
                             <p class="text-sm font-semibold text-[#6574f8]">{{App\Http\Livewire\NewsComponent::categoryName($new->category_id)}}</p>
