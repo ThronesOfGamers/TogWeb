@@ -15,38 +15,87 @@
 
             <div class="mt-8 sm:mt-12">
                 <dl class="grid grid-cols-1 gap-4 sm:grid-cols-4">
-                    <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+                    <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center" x-data="{ current: 0, target: {{$members}}, time: 2500}" x-init="() => {
+        start = current;
+        const interval = Math.max(time / (target - start), 5);
+        const step = (target - start) /  (time / interval);
+        const handle = setInterval(() => {
+            if(current < target)
+                current += step
+            else {
+                clearInterval(handle);
+                current = target
+            }
+            }, interval)
+    }">
                         <dt class="order-last text-lg font-medium text-gray-500" >
                             Membres
                         </dt>
-                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">
-                            {{ $members}}
+                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl" x-text="Math.round(current)">
+
                         </dd>
                     </div>
 
-                    <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+                    <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center" x-data="{ current: 0, target: {{$games}}, time: 2500}" x-init="() => {
+        start = current;
+        const interval = Math.max(time / (target - start), 5);
+        const step = (target - start) /  (time / interval);
+        const handle = setInterval(() => {
+            if(current < target)
+                current += step
+            else {
+                clearInterval(handle);
+                current = target
+            }
+            }, interval)
+    }">
                         <dt class="order-last text-lg font-medium text-gray-500">
                             Jeux
                         </dt>
 
-                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl">{{$games}}</dd>
+                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl" x-text="Math.round(current)"></dd>
                     </div>
 
-                    <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+                    <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center" x-data="{ current: 0, target: 25863, time: 2500}" x-init="() => {
+        start = current;
+        const interval = Math.max(time / (target - start), 5);
+        const step = (target - start) /  (time / interval);
+        const handle = setInterval(() => {
+            if(current < target)
+                current += step
+            else {
+                clearInterval(handle);
+                current = target
+            }
+            }, interval)
+    }">
                         <dt class="order-last text-lg font-medium text-gray-500">
                             Heures de jeu
                         </dt>
 
-                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl" >
-                            25863
+                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl" x-text="Math.round(current)">
+
                         </dd>
                     </div>
 
-                    <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center">
+
+                    <div class="flex flex-col rounded-lg bg-blue-100 px-4 py-8 text-center" x-data="{ current: 0, target: {{$years}}, time: 2500}" x-init="() => {
+        start = current;
+        const interval = Math.max(time / (target - start), 5);
+        const step = (target - start) /  (time / interval);
+        const handle = setInterval(() => {
+            if(current < target)
+                current += step
+            else {
+                clearInterval(handle);
+                current = target
+            }
+            }, interval)
+    }">
                         <dt class="order-last text-lg font-medium text-gray-500">
                             Années d'existence
                         </dt>
-                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl"> {{ $years }}</dd>
+                        <dd class="text-4xl font-extrabold text-blue-600 md:text-5xl" x-text="Math.round(current)"> </dd>
                     </div>
                 </dl>
             </div>
