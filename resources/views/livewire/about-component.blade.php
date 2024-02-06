@@ -1,5 +1,5 @@
 
-    <section class="bg-white bt-5" id="about" x-data="{ visible: false }" x-intersect="visible = true">
+    <section class="bg-white bt-5" id="about" x-data="init()" x-init="init">
 
         <div class="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 md:py-16 lg:px-8">
             <div class="max-w-3xl mx-auto text-center">
@@ -14,35 +14,8 @@
                 </p>
             </div>
 
-
-
             <div class="mt-8 sm:mt-12">
-                <div x-data="{
-    members: {{$members}},
-    games: {{$games}},
-    years: {{$years}},
-    targets: {
-        members: {{$members}},
-        games: {{$games}},
-        hours: 25863,
-        years: {{$years}},
-    },
-    init: function () {
-        Object.entries(this.targets).forEach(([key, target]) => {
-            this[key] = 0;
-            const interval = Math.max(2500 / (target - this[key]), 5);
-            const step = (target - this[key]) / (2500 / interval);
-            const handle = setInterval(() => {
-                if (this[key] < target)
-                    this[key] += step;
-                else {
-                    clearInterval(handle);
-                    this[key] = target;
-                }
-            }, interval);
-        });
-    },
-}" x-intersect="init()">
+                <div x-data="init()" x-init="init">
                     <dl class="grid grid-cols-1 gap-4 md:grid-cols-4">
                         <div class="flex flex-col px-4 py-8 text-center bg-blue-100 rounded-lg">
                             <dt class="order-last text-lg font-medium text-gray-500">
@@ -77,29 +50,37 @@
                 </div>
             </div>
         </div>
-
     </section>
 
     <script>
         function init() {
             return {
+                members: {{$members}},
+                games: {{$games}},
+                years: {{$years}},
+                hours: 25863,
+                targets: {
+                    members: {{$members}},
+                    games: {{$games}},
+                    hours: 25863,
+                    years: {{$years}},
+                },
                 current: 0,
-                target: {{$members}},
-                time: 2500,
-                startAnimation() {
-                    const interval = Math.max(this.time / (this.target - this.current), 5);
-                    const step = (this.target - this.current) / (this.time / interval);
-                    const handle = setInterval(() => {
-                        if (this.current < this.target)
-                            this.current += step;
-                        else {
-                            clearInterval(handle);
-                            this.current = this.target;
-                        }
-                    }, interval);
+                init: function () {
+                    Object.entries(this.targets).forEach(([key, target]) => {
+                        this[key] = 0;
+                        const interval = Math.max(2500 / (target - this[key]), 5);
+                        const step = (target - this[key]) / (2500 / interval);
+                        const handle = setInterval(() => {
+                            if (this[key] < target)
+                                this[key] += step;
+                            else {
+                                clearInterval(handle);
+                                this[key] = target;
+                            }
+                        }, interval);
+                    });
                 },
             };
         }
     </script>
-
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>

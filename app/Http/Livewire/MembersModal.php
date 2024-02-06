@@ -38,7 +38,7 @@ class MembersModal extends Component
     public function render()
     {
         return view('livewire.members-modal', [
-        'member' => $this->readyToLoad ? $this->selectedMember : null,
+            'member' => $this->readyToLoad ? $this->selectedMember : null,
         ]);
     }
 }
