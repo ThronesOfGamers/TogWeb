@@ -7,15 +7,23 @@ use Livewire\Component;
 
 class MembersComponent extends Component
 {
-    public function openModal($memberId): void
+    public $members;
+    public $selectedMemberId;
+
+    public function mount(): void
     {
-        $this->emit('openModal', $memberId);
+        $this->members = Membres::all();
     }
+    public function openModal(Membres $member): void
+    {
+        $this->selectedMemberId  = $member->id;
+        $this->emit('memberSelected', $this->selectedMemberId);
+    }
+
 
     public function render()
     {
-        $members = Membres::all();
-        return view('livewire.members-component', compact('members'));
+        return view('livewire.members-component');
     }
 
 }

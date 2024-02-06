@@ -1,5 +1,6 @@
-
-<div x-data="{ modelOpen: false }" x-show="modelOpen" @open-modal.window="modelOpen = true" @close-modal.window="modelOpen = false" wire:ignore>
+<div wire:init="loadModal" wire:loading.remove>
+    @if($readyToLoad)
+<div x-data="{ modelOpen: {{ $selectedMember ? 'true' : 'false' }} }" x-show="modelOpen && selectedMember" @open-modal.window="modelOpen = true" @close-modal.window="modelOpen = false" wire:ignore>
     <div x-show="modelOpen" class="fixed inset-0 z-50 overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
         <div class="flex items-end justify-center min-h-screen px-4 text-center md:items-center sm:block sm:p-0">
             <div x-cloak @click="modelOpen = false" x-show="modelOpen"
@@ -27,20 +28,23 @@
                     <div
                         class="grid grid-cols-1 gap-y-8 lg:grid-cols-2 lg:items-center lg:gap-x-16"
                     >
+
                         <div
                             class="mx-auto max-w-lg text-center lg:mx-0 ltr:lg:text-left rtl:lg:text-right"
                         >
 
-                            <img class="object-center object-cover rounded-full h-36 w-36 mb-8 -mt-20 mx-auto" src=" " alt="photo">
 
-                            <h2 class="text-3xl font-bold sm:text-4xl"> pseudo </h2>
-{{--                            <h2 class="text-3xl font-bold sm:text-4xl"> {{ $selectedMember->id }} </h2>--}}
+                                <img
+                                class="object-center object-cover rounded-full h-36 w-36 cursor-pointer"
+                                src="{{ asset('storage/' . $this->selectedMember->picture) }}"
+                                alt="photo">
 
+                            <h2 class="text-3xl font-bold sm:text-4xl"> {{ $selectedMember->pseudo }}</h2>
+                            <h4> {{ $selectedMember->grade }}</h4>
                             <p class="mt-4 text-gray-600">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut vero
-                                aliquid sint distinctio iure ipsum cupiditate? Quis, odit assumenda?
-                                Deleniti quasi inventore, libero reiciendis minima aliquid tempora.
-                                Obcaecati, autem.
+                                {{ $selectedMember->entryDate }}</p>
+                            <p class="mt-4 text-gray-600">
+                                {!! $selectedMember->description !!}
                             </p>
 
                         </div>
@@ -78,9 +82,13 @@
 
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
+@endif
+</div>
+
 

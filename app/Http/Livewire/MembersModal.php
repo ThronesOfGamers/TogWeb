@@ -7,13 +7,25 @@ use App\Models\Membres;
 
 class MembersModal extends Component
 {
-    protected $listeners = ['openModal'];
+    public $selectedMember = null;
 
-    public $selectedMember;
+    protected $listeners = ['memberSelected'];
 
-    public function openModal($membreId): void
+
+    public $readyToLoad = false;
+
+    public function loadModal(): void
     {
-        $this->selectedMember = Membres::find($membreId);
+        $this->readyToLoad = true;
+    }
+    public function mount()
+    {
+        $this->selectedMember = null;
+    }
+    public function memberSelected($selectedMemberId): void
+    {
+        $this->selectedMember = Membres::findOrFail($selectedMemberId);
+        $this->loadModal();
         $this->dispatchBrowserEvent('open-modal');
     }
 
@@ -25,6 +37,8 @@ class MembersModal extends Component
 
     public function render()
     {
-        return view('livewire.members-modal');
+        return view('livewire.members-modal', [
+        'member' => $this->readyToLoad ? $this->selectedMember : null,
+        ]);
     }
 }

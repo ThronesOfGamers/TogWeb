@@ -26,10 +26,8 @@
                     <a href="#" class="text-gray-600 hover:text-blue-600">twitch<i class="fab fa-twitch"></i></a>
                 </div>
             </div>
+
         @endforeach
     </div>
 
 </section>
-
-
-{{--<livewire:members-modal />--}}
